@@ -61,13 +61,7 @@
         </snapshotRepository>
     </distributionManagement>
 
-	<distributionManagement>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>trialqyhbox-secretsanta-libs-snapshot-snapshots</name>
-        <url>https://trialqyhbox.jfrog.io/artifactory/secretsanta-libs-snapshot</url>
-    </snapshotRepository>
-</distributionManagement>
+	
 
 	<build>
 		<plugins>
