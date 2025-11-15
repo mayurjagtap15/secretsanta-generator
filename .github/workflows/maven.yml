@@ -54,6 +54,5 @@ jobs:
     steps:
     - name: Deploy on runner
       run: |
-        cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
-        ls
-        nohup java -jar secretsanta-0.0.1-SNAPSHOT.jar > /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target/app.log 2>&1 &
+       cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
+       nohup java -jar secretsanta-0.0.1-SNAPSHOT.jar > /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target/app.log 2>&1 &
