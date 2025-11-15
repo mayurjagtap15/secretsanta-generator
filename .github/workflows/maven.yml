@@ -18,30 +18,42 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-   
-   test:
-    runs-on: Agent-1 
-    needs: build
-    
-    - name: Perform Unit Testing
-      run: mvn test -DskipTests=true
 
-  Deploy:
-    run-on: Agent-1
+
+  test:
+    runs-on: Agent-1
+    needs: build
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Perform Unit Testing
+      run: mvn test
+
+
+  deploy:
+    runs-on: Agent-1
     needs: test
 
+    steps:
     - name: Deploy on runner
       run: |
-      cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
-      ls
-      java -jar secretsanta-0.0.1-SNAPSHOT.jar
-
-    
+        cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
+        ls
+        java -jar secretsanta-0.0.1-SNAPSHOT.jar
