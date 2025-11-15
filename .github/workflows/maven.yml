@@ -33,3 +33,15 @@ jobs:
     
     - name: Perform Unit Testing
       run: mvn test -DskipTests=true
+
+  Deploy:
+    run-on: Agent-1
+    needs: test
+
+    - name: Deploy on runner
+      run: |
+      cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
+      ls
+      java -jar secretsanta-0.0.1-SNAPSHOT.jar
+
+    
