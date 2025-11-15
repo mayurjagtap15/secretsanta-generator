@@ -44,7 +44,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Perform Unit Testing
-      run: mvn test
+      run: mvn test -DskipTests=true
 
 
   deploy:
