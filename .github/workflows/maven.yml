@@ -55,4 +55,5 @@ jobs:
     - name: Deploy on runner
       run: |
        cd /home/ubuntu/actions-runner/_work/secretsanta-generator/secretsanta-generator/target
+       ls
        java -jar secretsanta-0.0.1-SNAPSHOT.jar
